@@ -19,8 +19,10 @@ ActiveRecord::Schema.define(version: 2019_04_17_234052) do
     t.string "title"
     t.string "show_notes"
     t.string "mp3_file"
+    t.bigint "podcast_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["podcast_id"], name: "index_episodes_on_podcast_id"
   end
 
   create_table "podcasts", force: :cascade do |t|

@@ -1,2 +1,4 @@
 class Episode < ApplicationRecord
+ 
+
 end
