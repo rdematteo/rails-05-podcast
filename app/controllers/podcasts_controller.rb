@@ -41,6 +41,10 @@ end
 
   def show
     @podcast = Podcast.find(params[:id])
+
+    @image = Faker::Avatar.image
+    @image1 = Faker::Avatar.image
+
   end
 
 

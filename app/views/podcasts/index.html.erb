@@ -6,16 +6,16 @@
 
 <div class="wrapper">
   <% @podcast.each_with_index do |podcast, index| %>
-<div class="podcast">
-    <div class="podcast_title"><p><%= podcast.name %></p></div>
-    <p>Genre: <%= podcast.genre %></p>
-    <p>Contains explicit content: <%= podcast.explicit_content %></p> 
-    <a href="<%= podcast_path(podcast.id) %>" class="btn">Show</a>
-    <%= link_to 'Delete?', delete_podcast_path(podcast), method: :delete,
-    data: { confirm: 'Are you sure?' } %>
-    
-</div>
-<% end %>
+    <div class="podcast">
+      <div class="podcast_title"><p><%= podcast.name %></p></div>
+      <p>Genre: <%= podcast.genre %></p>
+      <p>Contains explicit content: <%= podcast.explicit_content %></p> 
+      <a href="<%= podcast_path(podcast.id) %>" class="btn">Show</a>
+      <%= link_to 'Delete?', delete_podcast_path(podcast), method: :delete,
+      data: { confirm: 'Are you sure?' } %>
+      
+    </div>
+  <% end %>
 </div>
 
 

@@ -1,24 +1,36 @@
 <!-- on the podcasts show page add a form that allows you to create a new episode for that specific podcast (the create endpoint for episodes) -->
 
 <h1>Show Podcast</h1>
-
+<div class="wrapper pod">
+<div class="name">
 <h3>Podcast Name</h3>
 <p><%= @podcast.name %></p>
-
 <h3>Genre</h3>
 <p><%= @podcast.genre %></p>
+</div>
 
-<% if @podcast.episodes.any? %>
+<div class="image"><img src="<%= @image %>" alt="">
+</div>
+
+
+</div>
+
 <h2>Episodes</h2>
-<% @podcast.episodes.each do |episode| %>
-<h3>Title: <%= episode.title %></h3>
-<p>Notes: <%= episode.show_notes %></p>
-<%= link_to 'Destroy', delete_episode_path(episode), method: :delete,
-    data: { confirm: 'Are you sure?' } %>
-
-<% end %>
-<% end %>
-
+<div class="wrapper">
+  <% if @podcast.episodes.any? %>
+    
+    <% @podcast.episodes.each do |episode| %>
+      <div class="episode1">
+        <div class="image"><img src="<%= @image1 %>" alt="">
+        </div>
+        <h3>Title: <%= episode.title %></h3>
+        <h4>Notes</h4> <p><%= episode.show_notes %></p>
+        <%= link_to 'Delete', delete_episode_path(episode), method: :delete,
+          data: { confirm: 'Are you sure?' } %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
 
 <h1>Create A New episode</h1>
 
@@ -33,7 +45,8 @@
     <input type="text" name="show_notes" id="show_notes"/>
 
     <label for="mp3_file">mp3_file</label>
-    <input type="text" name="mp3_file" id="mp3_file" />
+    <input type="file" name="mp3_file" id="mp3_file" />
+    
 
     <input type="submit" value="Create" />
 </form>

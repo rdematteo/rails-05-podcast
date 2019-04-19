@@ -33,8 +33,13 @@ text-align: center;
   padding: 5px 0px;
   margin: 5px 5px;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
+
+.pod {
+  justify-content: flex-start;
+}
+
 
 .podcast_title {
   background: rgb(135, 190, 174);
@@ -67,3 +72,31 @@ text-align: center;
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#408c99', endColorstr='#599bb3',GradientType=0);
   background-color:#408c99;
 }
+
+img {
+  display: block;
+  height: 200px;
+  width: 200px;
+}
+
+.episode1 {
+  border: solid 2px black;
+  width:24%;
+  margin: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+h4 {
+  display: inline-block;
+  margin: 0px 5px;
+}
+
+p {
+  display: inline-block;
+  margin: 0px 5px;
+  
+}
+
+
+
