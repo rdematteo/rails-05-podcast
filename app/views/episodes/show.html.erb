@@ -1,0 +1,17 @@
+<<h3>Add an Episode - views.episodes.htmml</h3>
+
+<form action="<%= episode_path %>" method="POST" >
+    <input type="hidden" value="<%= form_authenticity_token %>" name="authenticity_token" />
+    <input type="hidden" value="<%= @podcast.id %>" name="podcast_id" />
+
+    <label for="title">Title</label>
+    <input type="text" name="title" id="title"/>
+
+    <label for="show_notes"> Notes</label>
+    <input type="text" name="show_notes" id="show_notes"/>
+
+    <label for="mp_3file">mp_3file</label>
+    <input type="text" name="mp_3file" id="mp_3file" />
+
+    <input type="submit" value="Create" />
+</form>

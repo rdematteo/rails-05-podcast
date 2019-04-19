@@ -1,19 +1,24 @@
-<h1>Podcast Index Page</h1>
-
-<h2>Title</h3>
-<h2><%= @podcast.name %></h2>
-
-<ul>
-    <% @podcast.each_with_index do |podcast, index| %>
-        <li>
-            <p><%= podcast.name %> - <%= podcast.genre %> <%= podcast.explicit_content %> 
-            <%= link_to "show", podcast_path(podcast.id) %></p>
-            
-        </li>
-    <% end %>
-</ul>
+<div class="header">
+<div class="title"><h1>Podcast Central</h1>
+</div>
+</div>
 
 
+<div class="wrapper">
+  <% @podcast.each_with_index do |podcast, index| %>
+<div class="podcast">
+    <div class="podcast_title"><p><%= podcast.name %></p></div>
+    <p>Genre: <%= podcast.genre %></p>
+    <p>Contains explicit content: <%= podcast.explicit_content %></p> 
+    <a href="<%= podcast_path(podcast.id) %>" class="btn">Show</a>
+    <%= link_to 'Delete?', delete_podcast_path(podcast), method: :delete,
+    data: { confirm: 'Are you sure?' } %>
+    
+</div>
+<% end %>
+</div>
 
-<
+
+<%= link_to "Create", new_podcast_path %>
 <%= link_to "Back", :back %>
+

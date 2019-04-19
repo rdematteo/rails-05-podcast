@@ -4,21 +4,19 @@
 <form action="<%= podcasts_path %>" method="POST" >
     <input type="hidden" value="<%= form_authenticity_token %>" name="authenticity_token" />
 
-<% if @podcast.errors.any? %>
+  <% if @podcast.errors.any? %>
     <div id="error_explanation">
-        <h2>
-        <%= pluralize(@podcast.errors.count, "error") %> prohibited
-        this article from being saved:
-        </h2>
-        <ul>
-        <% @podcast.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-        <% end %>
-        </ul>
+      <h2>
+      <%= pluralize(@podcast.errors.count, "error") %> prohibited
+      this article from being saved:
+      </h2>
+      <ul>
+      <% @podcast.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+      <% end %>
+      </ul>
     </div>
-    <% end %>
-
-
+  <% end %>
 
     <label for="name">Name</label>
     <input type="text" name="name" id="name"/>
@@ -32,3 +30,6 @@
 
     <input type="submit" value="Create" />
 </form>
+
+<%= link_to "Back", :back %>
+<%= link_to "Podcast List", podcasts_path %>

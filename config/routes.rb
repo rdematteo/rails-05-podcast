@@ -6,10 +6,14 @@ Rails.application.routes.draw do
 
 
   put "/podcasts/:id", to: "podcasts#update"
-patch "/podcasts/:id", to: "podcasts#update"
-get "/podcasts/:id/edit", to: "podcasts#edit", as: "edit_podcast"
+  patch "/podcasts/:id", to: "podcasts#update"
+  get "/podcasts/:id/edit", to: "podcasts#edit", as: "edit_podcast"
 
+  post "/episodes", to: "episodes#create", as: "episode"
 
+  delete '/podcasts/:id', to: "podcasts#destroy", as: "delete_podcast"
+  
+  delete '/episodes/:id', to: "episodes#destroy", as: "delete_episode"
 
   root 'podcasts#index'
 end

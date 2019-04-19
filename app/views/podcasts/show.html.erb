@@ -1,6 +1,47 @@
 <!-- on the podcasts show page add a form that allows you to create a new episode for that specific podcast (the create endpoint for episodes) -->
 
-<h1>Show Podcasts</h1>
+<h1>Show Podcast</h1>
+
+<h3>Podcast Name</h3>
+<p><%= @podcast.name %></p>
+
+<h3>Genre</h3>
+<p><%= @podcast.genre %></p>
+
+<% if @podcast.episodes.any? %>
+<h2>Episodes</h2>
+<% @podcast.episodes.each do |episode| %>
+<h3>Title: <%= episode.title %></h3>
+<p>Notes: <%= episode.show_notes %></p>
+<%= link_to 'Destroy', delete_episode_path(episode), method: :delete,
+    data: { confirm: 'Are you sure?' } %>
+
+<% end %>
+<% end %>
 
 
 <h1>Create A New episode</h1>
+
+<form action="<%= episode_path %>" method="POST" >
+    <input type="hidden" value="<%= form_authenticity_token %>" name="authenticity_token" />
+    <input type="hidden" value="<%= @podcast.id %>" name="podcast_id" />
+
+    <label for="title">Title</label>
+    <input type="text" name="title" id="title"/>
+
+    <label for="show_notes">show_notes</label>
+    <input type="text" name="show_notes" id="show_notes"/>
+
+    <label for="mp3_file">mp3_file</label>
+    <input type="text" name="mp3_file" id="mp3_file" />
+
+    <input type="submit" value="Create" />
+</form>
+
+
+
+
+<%= link_to "Back", :back %>
+<%= link_to "Next", podcast_path(@podcast.id+1) %>
+<%= link_to "Home", podcasts_path %>
+
